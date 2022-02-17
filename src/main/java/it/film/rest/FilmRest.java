@@ -111,7 +111,7 @@ Logger log = LoggerFactory.getLogger(getClass());
 		}
 	}
 
-	//aggiornamento persona
+	
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Aggiorna il film presente nel Database",
 				consumes = "application/json")
@@ -119,10 +119,11 @@ Logger log = LoggerFactory.getLogger(getClass());
 		Film f = new Film();
 		f.setId(id);
 		f.setTitolo(fDto.getTitolo());
-		f.setIncasso(fDto.getIncasso());
 		f.setAnno(fDto.getAnno());
 		f.setRegista(fDto.getRegista());
 		f.setTipo(fDto.getTipo());
+		String incassoCriptato = BCrypt.hashpw(fDto.getIncasso(), BCrypt.gensalt());
+		f.setIncasso(incassoCriptato);
 		
 		try {
 			getFilmdao().aggiorna(f);
