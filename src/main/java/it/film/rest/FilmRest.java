@@ -76,7 +76,7 @@ Logger log = LoggerFactory.getLogger(getClass());
 	@DeleteMapping("/{id}")
 	@ApiOperation(
 			value = "Elimina un film")
-	public ResponseEntity<String> deletePersona(@PathVariable int id) {
+	public ResponseEntity<String> deleteFilm(@PathVariable int id) {
 		try {
 			getFilmdao().elimina(id);
 			return new ResponseEntity<String>("Eliminazione avvenuta", HttpStatus.OK);
@@ -90,7 +90,7 @@ Logger log = LoggerFactory.getLogger(getClass());
 	@ApiOperation(
 			value = "Inserisci un nuovo film",
 			consumes = "application/json")
-	public ResponseEntity<String> inserisciRegista(@RequestBody FilmDto fDto) {
+	public ResponseEntity<String> inserisciFilm(@RequestBody FilmDto fDto) {
 		if(fDto.getRegista() == null || fDto.getRegista().isBlank()) {
 			log.error("aggiungi il regista!!!");
 			return new ResponseEntity<String>("Il regista dev'essere inserito!", HttpStatus.I_AM_A_TEAPOT);
