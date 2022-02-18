@@ -29,12 +29,6 @@ public class FilmDao implements IFilmDao {
 
 	}
 
-	@Override
-	public Film trovaId(int id) {
-		Film film  = em.find(Film.class, id);
-		return film;
-	}
-
 	
 	@Override
 	public void elimina(int id) {
