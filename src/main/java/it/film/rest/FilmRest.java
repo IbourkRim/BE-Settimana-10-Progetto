@@ -90,7 +90,7 @@ Logger log = LoggerFactory.getLogger(getClass());
 	@ApiOperation(
 			value = "Inserisci un nuovo film",
 			consumes = "application/json")
-	public ResponseEntity<String> inserisciPersona(@RequestBody FilmDto fDto) {
+	public ResponseEntity<String> inserisciRegista(@RequestBody FilmDto fDto) {
 		if(fDto.getRegista() == null || fDto.getRegista().isBlank()) {
 			log.error("aggiungi il regista!!!");
 			return new ResponseEntity<String>("Il regista dev'essere inserito!", HttpStatus.I_AM_A_TEAPOT);
@@ -115,7 +115,7 @@ Logger log = LoggerFactory.getLogger(getClass());
 	@PutMapping("/{id}")
 	@ApiOperation(value = "Aggiorna il film presente nel Database",
 				consumes = "application/json")
-	public ResponseEntity<String> aggiornaPersona(@RequestBody FilmDto fDto, @PathVariable int id){
+	public ResponseEntity<String> aggiornaFilm(@RequestBody FilmDto fDto, @PathVariable int id){
 		Film f = new Film();
 		f.setId(id);
 		f.setTitolo(fDto.getTitolo());
