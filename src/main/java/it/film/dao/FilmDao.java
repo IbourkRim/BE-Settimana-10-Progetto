@@ -51,6 +51,12 @@ public class FilmDao implements IFilmDao {
 		return listaFilm;
 	}
 
+	/**
+	 * Funziona di ricerca per regista
+	 * @author Rim
+	 * @param regista - il nome da regista da cercare
+	 * @return listaRegista
+	 */
 	public List<Film> trovaRegista(String regista){
 		Query q = em.createQuery("SELECT f FROM Film f WHERE f.regista = '" +regista + "'");
 		List<Film> listaRegista = q.getResultList();

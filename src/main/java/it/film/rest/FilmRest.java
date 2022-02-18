@@ -93,7 +93,7 @@ Logger log = LoggerFactory.getLogger(getClass());
 	public ResponseEntity<String> inserisciPersona(@RequestBody FilmDto fDto) {
 		if(fDto.getRegista() == null || fDto.getRegista().isBlank()) {
 			log.error("aggiungi il regista!!!");
-			return new ResponseEntity<String>("Il codice fiscale dev'essere inserito!", HttpStatus.I_AM_A_TEAPOT);
+			return new ResponseEntity<String>("Il regista dev'essere inserito!", HttpStatus.I_AM_A_TEAPOT);
 		}
 		Film f = new Film();
 		f.setTitolo(fDto.getTitolo());
